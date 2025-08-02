@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "prices",
+  "info": {
+    "singularName": "price",
+    "pluralName": "prices",
+    "displayName": "Price"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "single": {
+      "type": "integer"
+    },
+    "double": {
+      "type": "integer"
+    },
+    "triple": {
+      "type": "integer"
+    },
+    "child_prices": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::children-price.children-price"
+    },
+    "hotel": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "date": {
+      "type": "date"
+    },
+    "duration": {
+      "type": "string"
+    },
+    "identification": {
+      "type": "string"
+    }
+  }
+}

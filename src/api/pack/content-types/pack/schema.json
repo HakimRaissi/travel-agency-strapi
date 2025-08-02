@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "packs",
+  "info": {
+    "singularName": "pack",
+    "pluralName": "packs",
+    "displayName": "Pack"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "prices": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::price.price"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "main_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "perklist": {
+      "type": "customField",
+      "customField": "plugin::multi-select.multi-select",
+      "default": "[]",
+      "options": [
+        "Hotel Stay:hotel-stay",
+        "Excursion:excursion",
+        "Flight Tickets:flight-tickets",
+        "Shuttle:shuttle",
+        "Formula (All Inclusive):formula-all-inclusive",
+        "Formula (Half Board):formula-half-board",
+        "Formula (Breakfast Only):formula-breakfast-only"
+      ]
+    }
+  }
+}
