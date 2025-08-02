@@ -1,5 +1,5 @@
 # Build Stage
-FROM node:20-alpine as build
+FROM node:20-alpine AS build
 
 WORKDIR /app
 
@@ -12,7 +12,7 @@ RUN apk add --no-cache \
   sqlite
 
 COPY package*.json ./
-RUN npm ci
+RUN npm install
 
 COPY . .
 
