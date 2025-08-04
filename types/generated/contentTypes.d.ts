@@ -406,6 +406,68 @@ export interface ApiChildrenPriceChildrenPrice
   };
 }
 
+export interface ApiFeaturedPackFeaturedPack
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'featured_packs';
+  info: {
+    displayName: 'Featured Pack';
+    pluralName: 'featured-packs';
+    singularName: 'featured-pack';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::featured-pack.featured-pack'
+    > &
+      Schema.Attribute.Private;
+    pack: Schema.Attribute.Relation<'oneToOne', 'api::pack.pack'>;
+    price: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFlashSaleFlashSale extends Struct.CollectionTypeSchema {
+  collectionName: 'flash_sales';
+  info: {
+    displayName: 'Flash Sale Pack';
+    pluralName: 'flash-sales';
+    singularName: 'flash-sale';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cover: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::flash-sale.flash-sale'
+    > &
+      Schema.Attribute.Private;
+    pack: Schema.Attribute.Relation<'oneToOne', 'api::pack.pack'>;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -1074,6 +1136,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::children-price.children-price': ApiChildrenPriceChildrenPrice;
+      'api::featured-pack.featured-pack': ApiFeaturedPackFeaturedPack;
+      'api::flash-sale.flash-sale': ApiFlashSaleFlashSale;
       'api::global.global': ApiGlobalGlobal;
       'api::pack.pack': ApiPackPack;
       'api::price.price': ApiPricePrice;

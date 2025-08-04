@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "flash_sales",
+  "info": {
+    "singularName": "flash-sale",
+    "pluralName": "flash-sales",
+    "displayName": "Flash Sale Pack"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "pack": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pack.pack"
+    }
+  }
+}

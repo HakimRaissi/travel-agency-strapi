@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "featured_packs",
+  "info": {
+    "singularName": "featured-pack",
+    "pluralName": "featured-packs",
+    "displayName": "Featured Pack"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "price": {
+      "type": "integer"
+    },
+    "pack": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pack.pack"
+    }
+  }
+}
